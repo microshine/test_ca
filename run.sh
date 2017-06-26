@@ -18,7 +18,7 @@ openssl genrsa -out cert.key
 openssl req -new -key cert.key -out cert.req -config ../../ca.conf
 # signing ca with root
 cd ../root
-openssl x509 -req -in ../ca/cert.req -CA root.crt -CAkey root.key -out ../ca/cert.crt -extfile ../../ca.conf -extensions x509_extensions -CAcreateserial
+openssl x509 -req -in ../ca/cert.req -CA root.crt -days 356 -CAkey root.key -out ../ca/cert.crt -extfile ../../ca.conf -extensions x509_extensions -CAcreateserial
 cd ../ca
 mkdir database
 touch database/index.txt
