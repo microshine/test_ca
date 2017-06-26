@@ -33,3 +33,15 @@ openssl x509 -req -in client.req -CA ca.crt -CAkey ca.key -out client.crt -extfi
 ```
 
 > NOTE: For `srl` file creation use `-CAcreateserial` option
+
+## Generate CRL
+
+```
+openssl ca -gencrl -config ca.conf -out ca.crl
+```
+
+## Revoke certificate
+
+```
+openssl ca -revoke client.crt -config ca.conf
+```
